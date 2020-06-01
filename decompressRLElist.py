@@ -1,14 +1,17 @@
 def decompressRLElist(nums):
     arr = []
-    for i in range(0, len(nums), 2):
-        freq = nums[i]
-        val = nums[i+1]
-        n = 0
-        while n < freq:
-            arr.append(val)
-            n += 1
-    for number in arr:
-        print(number)
+    freq=0
+    val=0
+    for i, v in enumerate(nums):
+        # freq is always 0, 2 indexes. Assign frequency
+        if i%2 == 0:
+            freq = v
+        # assign v to val and use for loop to add the val to arr freq amount of times
+        else:
+            val = v
+            for x in range(freq):
+                arr.append(val)
+    print(arr)
     return arr
 
 nums = [1,2,3,4]
